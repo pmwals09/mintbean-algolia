@@ -1,8 +1,8 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, Hits, SearchBox, ClearRefinements, RefinementList } from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox, ClearRefinements, RefinementList } from 'react-instantsearch-dom';
 
-import SearchHit from '../components/SearchHit';
+import CustomHits from '../components/CustomHits';
 
 const searchClient = algoliasearch(
   'W2VMA39BF8',
@@ -11,17 +11,19 @@ const searchClient = algoliasearch(
 
 const SearchContainer = () => {
   return (
-    <div className="container">
+    <div>
       <InstantSearch searchClient={searchClient} indexName="dev_MINTBEAN">
-        <div className="left-panel">
+        <div className="grid-x">
+          <div className="cell small-3">
             <ClearRefinements />
             <h2>States</h2>
             <RefinementList attribute="terms.state" />
           </div>
-          <div className="right-panel">
-              <SearchBox />
-              <Hits hitComponent={SearchHit}/>
+          <div className="cell auto">
+            <SearchBox />
+            <CustomHits />
           </div>
+        </div>
       </InstantSearch>
     </div>
   );
