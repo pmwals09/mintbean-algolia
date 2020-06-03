@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 const Hit = props => {
   const legislator = props.hit;
   return (
-    <div className="cell small-3 callout primary">
-      <h4>
+    <div>
+      <h6>
         {legislator.name.first} {legislator.name.last} -{' '}
         {legislator.terms[legislator.terms.length - 1].party[0]} -{' '}
         {legislator.terms[legislator.terms.length - 1].state}{' '}
         {legislator.terms[legislator.terms.length - 1].type}
-      </h4>
+      </h6>
       <ul>
         <li>
           Has served {legislator.terms.length}{' '}

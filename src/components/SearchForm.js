@@ -16,14 +16,11 @@ const SearchContainer = () => {
         <div className="search-panel">
           <div className="search-panel__results">
             <SearchBox
-              className="searchbox"
               translations={{
                 placeholder: '',
               }}
             />
-            <div className="grid-x grid-margin-x">
-              <Hits hitComponent={SearchHit} />
-            </div>
+            <Hits hitComponent={SearchHit}/>
           </div>
         </div>
       </InstantSearch>
