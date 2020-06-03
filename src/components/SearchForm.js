@@ -1,6 +1,6 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, Hits, SearchBox } from 'react-instantsearch-dom';
+import { InstantSearch, Hits, SearchBox, ClearRefinements, RefinementList } from 'react-instantsearch-dom';
 
 import SearchHit from '../components/SearchHit';
 
@@ -13,16 +13,15 @@ const SearchContainer = () => {
   return (
     <div className="container">
       <InstantSearch searchClient={searchClient} indexName="dev_MINTBEAN">
-        <div className="search-panel">
-          <div className="search-panel__results">
-            <SearchBox
-              translations={{
-                placeholder: '',
-              }}
-            />
-            <Hits hitComponent={SearchHit}/>
+        <div className="left-panel">
+            <ClearRefinements />
+            <h2>States</h2>
+            <RefinementList attribute="terms.state" />
           </div>
-        </div>
+          <div className="right-panel">
+              <SearchBox />
+              <Hits hitComponent={SearchHit}/>
+          </div>
       </InstantSearch>
     </div>
   );
