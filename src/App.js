@@ -1,9 +1,11 @@
 import React from 'react';
 
+import SearchContainer from "./containers/SearchContainer"
+
 function App() {
   return (
     <div className="grid-container">
-      I'm an app
+      <SearchContainer />
     </div>
   );
 }
