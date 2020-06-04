@@ -1,8 +1,9 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, Hits, SearchBox, ClearRefinements, RefinementList } from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox, ClearRefinements, RefinementList, Pagination } from 'react-instantsearch-dom';
+import { orderBy } from 'lodash'
 
-import SearchHit from '../components/SearchHit';
+import CustomHits from '../components/CustomHits';
 
 const searchClient = algoliasearch(
   'W2VMA39BF8',
@@ -11,17 +12,41 @@ const searchClient = algoliasearch(
 
 const SearchContainer = () => {
   return (
-    <div className="container">
+    <div>
       <InstantSearch searchClient={searchClient} indexName="dev_MINTBEAN">
-        <div className="left-panel">
+        <div className="grid-x">
+          <div className="cell small-2">
             <ClearRefinements />
-            <h2>States</h2>
-            <RefinementList attribute="terms.state" />
+            <h3>States</h3>
+            <div className="refinement-list">
+              <RefinementList
+                attribute="terms.state"
+                limit={55}
+                transformItems={items => orderBy(items, "label", "asc")}
+              />
+            </div>
+            <h3>Party</h3>
+            <div>
+              <RefinementList
+                attribute="terms.party"
+                limit={5}
+                transformItems={items => orderBy(items, "label", "asc")}
+              />
+            </div>
+            <div>
+              <h3>Type</h3>
+                <RefinementList
+                  attribute="terms.type"
+                  limit={5}
+                />
+            </div>
           </div>
-          <div className="right-panel">
-              <SearchBox />
-              <Hits hitComponent={SearchHit}/>
+          <div className="cell auto">
+            <SearchBox />
+            <CustomHits />
+            <Pagination />
           </div>
+        </div>
       </InstantSearch>
     </div>
   );
