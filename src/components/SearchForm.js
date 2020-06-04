@@ -17,7 +17,7 @@ const SearchContainer = () => {
         <div className="grid-x">
           <div className="cell small-2">
             <ClearRefinements />
-            <h2>States</h2>
+            <h3>States</h3>
             <div className="refinement-list">
               <RefinementList
                 attribute="terms.state"
@@ -25,13 +25,20 @@ const SearchContainer = () => {
                 transformItems={items => orderBy(items, "label", "asc")}
               />
             </div>
-            <h2>Party</h2>
-            <div className="refinement-list">
+            <h3>Party</h3>
+            <div>
               <RefinementList
                 attribute="terms.party"
                 limit={5}
                 transformItems={items => orderBy(items, "label", "asc")}
               />
+            </div>
+            <div>
+              <h3>Type</h3>
+                <RefinementList
+                  attribute="terms.type"
+                  limit={5}
+                />
             </div>
           </div>
           <div className="cell auto">
