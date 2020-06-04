@@ -3,10 +3,8 @@ import { connectHits } from 'react-instantsearch-dom'
 import _ from 'lodash'
 
 const Hits = ({ hits }) => {
-  debugger
   const legislatorList = hits.sort().map(hit => {
     let partyColor = _.lowerCase(hit.terms[hit.terms.length - 1].party[0])
-    debugger
     return (
       <div className={`cell small-12 medium-4 large-3 legislator ${partyColor}`} key={hit.id.bioguide}>
         <h6>

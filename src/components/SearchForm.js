@@ -1,6 +1,6 @@
 import React from 'react';
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, SearchBox, ClearRefinements, RefinementList } from 'react-instantsearch-dom';
+import { InstantSearch, SearchBox, ClearRefinements, RefinementList, Pagination } from 'react-instantsearch-dom';
 import { orderBy } from 'lodash'
 
 import CustomHits from '../components/CustomHits';
@@ -37,6 +37,7 @@ const SearchContainer = () => {
           <div className="cell auto">
             <SearchBox />
             <CustomHits />
+            <Pagination />
           </div>
         </div>
       </InstantSearch>
