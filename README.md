@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) as part of a [Mintbean](https://www.mintbean.io/) Hackathon challenge, in which we had 4 hours to create an app that incorporates [Algolia](https://www.algolia.com/) search, to which I uploaded publicly available data about U.S. legislators. The deployed product can be found on Heroku, [here](https://mintbean-algolia.herokuapp.com/). The primary API used is Algolia's, via a React wrapper, and the primary technology used is React.
 
 ## Available Scripts
 
